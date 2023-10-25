@@ -1,0 +1,45 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-8 d-grid gap-3">
+    <h1 class="fs-2">Listar Categorias</h1>
+
+    <button routerLink="/categorias/inserir" mat-raised-button class="me-auto py-4 px-5 fs-6" color="primary">
+      <mat-icon>add</mat-icon>
+      Nova Categoria
+    </button>
+
+    <div class="row gap-3">
+      <mat-card
+        *ngFor="let categoria of categorias$ | async"
+        appCardHover
+        class="col-12 col-md-6 col-lg-3"
+      >
+        <mat-card-header>
+          <mat-card-title>
+            <span>{{ categoria.titulo }}</span>
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content> </mat-card-content>
+
+        <mat-card-actions class="pe-0" align="end">
+          <button
+            mat-icon-button
+            matTooltip="Editar"
+            color="primary"
+            routerLink="/categorias/editar/{{categoria.id}}"
+          >
+            <mat-icon>edit_note</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            matTooltip="Excluir"
+            color="warn"
+            routerLink="/categorias/excluir/{{categoria.id}}"
+          >
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

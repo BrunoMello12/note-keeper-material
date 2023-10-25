@@ -1,7 +1,11 @@
 <div class="row gap-3">
   <h1 class="p-0 fw-light">Gerencie o seu dia-a-dia com a nossa ajuda.</h1>
 
-  <mat-card class="col-12 col-md-6 col-lg-3 d-grid gap-2">
+  <mat-card 
+  appCardHover 
+  class="col-12 col-md-6 col-lg-3 d-grid gap-2"
+  routerLink="/categorias/listar"
+  >
     <mat-card-header>
       <mat-card-title>Categorias</mat-card-title>
       <mat-icon class="ms-auto">label</mat-icon>
@@ -12,7 +16,11 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="col-12 col-md-6 col-lg-3 d-grid gap-2">
+  <mat-card 
+  appCardHover 
+  class="col-12 col-md-6 col-lg-3 d-grid gap-2"
+  routerLink="/notas/listar"
+  >
     <mat-card-header>
       <mat-card-title>Notas</mat-card-title>
       <mat-icon class="ms-auto">collections_bookmark</mat-icon>
