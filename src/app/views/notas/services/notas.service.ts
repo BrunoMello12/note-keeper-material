@@ -27,7 +27,7 @@ export class NotasService {
   }
 
   selecionarPorId(id: number): Observable<Nota> {
-    const url = `${this.NOTAS_API_URL}/${id}`;
+    const url = `${this.NOTAS_API_URL}/${id}?_expand=categoria`;
 
     return this.http.get<Nota>(url);
   }

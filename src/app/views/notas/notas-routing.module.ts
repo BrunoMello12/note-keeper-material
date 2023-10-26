@@ -5,6 +5,7 @@ import { NotasService } from './services/notas.service';
 import { InserirNotaComponent } from './inserir-nota/inserir-nota.component';
 import { listarCategoriasResolver } from '../categorias/services/listar-categorias-resolver';
 import { EditarNotaComponent } from './editar-nota/editar-nota.component';
+import { ExcluirNotaComponent } from './excluir-nota/excluir-nota.component';
 
 const formsNotaResolver = (route: ActivatedRouteSnapshot) => {
   const id = parseInt(route.paramMap.get('id')!);
@@ -38,11 +39,11 @@ const routes: Routes = [
       categorias: listarCategoriasResolver
     },
   },
-  // {
-  //   path: 'excluir/:id',
-  //   component: ExcluirCategoriaComponent,
-  //   resolve: { categoria: formsCategoriaResolver },
-  // },
+  {
+    path: 'excluir/:id',
+    component: ExcluirNotaComponent,
+    resolve: { nota: formsNotaResolver },
+  },
 ];
 
 @NgModule({
