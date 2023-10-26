@@ -3,6 +3,7 @@ import { Observable, map } from 'rxjs';
 import { Categoria } from '../models/categoria';
 import { CategoriasService } from '../services/categorias.service';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from 'src/app/core/notification/services/notification.service';
 
 @Component({
   selector: 'app-listar-categorias',

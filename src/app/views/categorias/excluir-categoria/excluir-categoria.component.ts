@@ -3,6 +3,7 @@ import { Categoria } from '../models/categoria';
 import { Observable, map } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriasService } from '../services/categorias.service';
+import { NotificationService } from 'src/app/core/notification/services/notification.service';
 
 @Component({
   selector: 'app-excluir-categoria',
@@ -15,7 +16,8 @@ export class ExcluirCategoriaComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private categoriasService: CategoriasService
+    private categoriasService: CategoriasService,
+    private notification: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +34,10 @@ export class ExcluirCategoriaComponent implements OnInit {
   }
 
   processarSucesso(res: Categoria) {
+    this.notification.sucesso(
+      `A categoria ${res.titulo} foi excluída com sucesso!`
+    );
+
     this.router.navigate(['/categorias/listar']);
   }
 

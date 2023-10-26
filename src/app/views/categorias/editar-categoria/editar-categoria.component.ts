@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriasService } from '../services/categorias.service';
 import { Categoria } from '../models/categoria';
+import { NotificationService } from 'src/app/core/notification/services/notification.service';
 
 @Component({
   selector: 'app-editar-categoria',
@@ -16,7 +17,8 @@ export class EditarCategoriaComponent implements OnInit{
     private fb: FormBuilder,
     private categoriasService: CategoriasService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private notification: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -38,6 +40,10 @@ export class EditarCategoriaComponent implements OnInit{
   }
 
   processarSucesso(res: Categoria) {
+    this.notification.sucesso(
+      `A categoria ${res.titulo} foi editada com sucesso!`
+    );
+
     this.router.navigate(['/categorias/listar']);
   }
 

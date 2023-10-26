@@ -14,6 +14,14 @@ const routes: Routes = [
         (m) => m.CategoriasModule
       ),
   },
+
+  {
+    path: 'notas',
+    loadChildren: () =>
+      import('./views/notas/notas.module').then(
+        (m) => m.NotasModule
+      ),
+  },
 ];
 
 @NgModule({
